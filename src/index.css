@@ -1,12 +1,33 @@
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+  --primary: #039be5;
+  --primary-hover: #0288d1;
+  --primary-focus: rgba(3, 155, 229, 0.125);
+  --primary-inverse: #FFF;
+  --icon-inverse: #000;
+}
+
+*,h1,h2{
+  font-family:monospace;
+}
+
 body{
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  padding: 1rem .5rem;
+}
+div{
+  text-align: center;
 }
 h2{
   text-align: center;
   padding: 0 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
 }
 article{
   background: none;
@@ -16,14 +37,30 @@ article{
 summary{
   font-size: 1.5rem;
   font-weight:600;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 1rem;
+}
+summary small{
+  font-size: .8rem;
+  font-weight: 100;
 }
 
 .bts{
   display: flex;
   flex-direction: row;
   gap: 1rem;
+  justify-content: center;
+}
+.bts a{
+  display: flex;
+  align-items: center;
+  gap: .5rem;
 }
 
+td{
+  text-align: center;
+}
 td div{
   border: 5px solid antiquewhite;
   border-radius: 100%;
@@ -32,10 +69,25 @@ td div{
   display: flex;
   justify-content: center;
   align-items: center; 
+  margin: 0 auto;
+  font-weight:800;
 }
 
 tr button {
   margin: 0;
-  margin-left: auto;
-  width: 6rem;
+  width: min-content;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+}
+
+[type=radio]:checked{
+  border-width: 0.65rem; 
 }

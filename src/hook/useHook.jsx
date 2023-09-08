@@ -6,11 +6,14 @@ export default function useHook(){
   const [data, setData] =useState();
 
   async function getData() {
-    setData(
-      await Axios.get("http://127.0.0.1:8080/allFilas")
+    const get =await Axios.get("http://127.0.0.1:8080/allFilas")
       .then(res => res.data)
       .catch(err => console.log("erro: "+ err.code))
-    )
+    
+    if (get != data) {
+      setData(get)
+    }
+    return
   }
 
   useEffect(() =>{
@@ -44,5 +47,39 @@ export default function useHook(){
     .catch(err=>console.log(err))
   }
 
-  return {data,delData,addData,setAddData,postData}
+  function Animation({type}) {
+    return(
+      <><animate
+        attributeName="opacity"
+        values={type == "rotate"?"1;1;1":"0;1;0"}
+        dur="2s"
+        repeatCount="indefinite"
+      ></animate>
+      {
+        type == "rotate"?
+        <animateTransform
+        attributeName="transform"
+        attributeType="XML"
+        type="rotate"
+        dur="5s"
+        from="0 0 0"
+        to="360 0 0"
+        repeatCount="indefinite"
+        ></animateTransform>
+        :
+        <animateTransform
+        attributeName="transform"
+        attributeType="XML"
+        dur="2s"
+        type="translate"
+        from="-50 0"
+        to="50 0"
+        repeatCount="indefinite"
+        ></animateTransform>
+      }
+      </>
+    )
+  }
+
+  return {data,delData,addData,setAddData,postData,Animation}
 }
