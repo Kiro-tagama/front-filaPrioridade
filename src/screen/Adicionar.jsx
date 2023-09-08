@@ -18,7 +18,7 @@ export default function Adicionar() {
       </h2>
 
       <div style={{textAlign:'start'}}>
-      <label htmlFor="">Name</label>
+      <label htmlFor="">Nome</label>
       <input 
         type="text" 
         placeholder="Jhon Doe" 

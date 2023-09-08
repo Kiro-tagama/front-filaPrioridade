@@ -88,6 +88,8 @@ button {
   gap: .5rem;
 }
 
-[type=radio]:checked{
-  border-width: 0.65rem; 
+[type=radio]:checked, 
+[type=radio]:checked:active, 
+[type=radio]:checked:focus{
+  background-color: var(--primary); 
 }
