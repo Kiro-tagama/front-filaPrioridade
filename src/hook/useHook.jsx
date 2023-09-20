@@ -2,13 +2,20 @@ import { useEffect, useState } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+import ding from './ding.mp3'
+
 export default function useHook(){
   const [data, setData] =useState();
 
+  function notiAudio(){
+    const audio = new Audio(ding)
+    audio.play()
+  } 
+  
   async function getData() {
     const get =await Axios.get("http://127.0.0.1:8080/allFilas")
-      .then(res => res.data)
-      .catch(err => console.log("erro: "+ err.code))
+    .then(res => res.data)
+    .catch(err => console.log("erro: "+ err.code))
     
     if (get != data) {
       setData(get)
@@ -24,6 +31,8 @@ export default function useHook(){
     Axios.delete("http://127.0.0.1:8080/delUser/"+params)
     .then(res => console.log("del id: "+params))
     .catch(err => console.log("erro: "+ err))
+
+    notiAudio()
   }
 
   ///////

@@ -3,7 +3,7 @@ import useHook from "../hook/useHook";
 import { Gear, Trash } from "@phosphor-icons/react";
 
 export default function Gerenciar(options) {
-  const {data,delData,Animation} = useHook()
+  const {data,delData,Animation,notiAudio} = useHook()
 
   function sendData(params) {
     const res= data[params].filas[4]
@@ -61,7 +61,9 @@ export default function Gerenciar(options) {
         Gerenciamento
       </h2>
       {data == null ? 
-        <article aria-busy="true"></article> 
+        <article aria-busy="true" style={{
+          background: 'none',
+          boxShadow: 'none'}}></article> 
         : data.map((res,index)=>sendData(index))
       }
       <Link to={'/'}>Voltar ao inicio</Link>

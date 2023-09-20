@@ -23,6 +23,15 @@ export default function Init (){
           Adicionar
         </Link>
       </div>
+      <br />
+      <div className="bts">
+        <Link to={'/fila/1'} role="button" className="outline">
+          Fila 01
+        </Link>
+        <Link to={'/fila/2'} role="button" className="outline">
+          Fila 02
+        </Link>
+      </div>
     </div>
   )
 }
