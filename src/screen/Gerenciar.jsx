@@ -63,7 +63,7 @@ export default function Gerenciar(options) {
       {data == null ? 
         <article aria-busy="true" style={{
           background: 'none',
-          boxShadow: 'none'}}></article> 
+          boxShadow: 'none'}}/>
         : data.map((res,index)=>sendData(index))
       }
       <Link to={'/'}>Voltar ao inicio</Link>
