@@ -6,10 +6,12 @@ import Init from './screen/Init';
 import Gerenciar from './screen/Gerenciar';
 import Adicionar from './screen/Adicionar';
 import Fila from './screen/Fila';
+import { ContextProvider } from './context/ContextProvider';
 
 export default function App (){
   return(
     <BrowserRouter>
+    <ContextProvider>
     <Routes>
       <Route path="/">
         <Route path="/" element={<Init/>} />
@@ -18,6 +20,7 @@ export default function App (){
         <Route path="/fila/:id" element={<Fila/>} />
       </Route>
     </Routes>
+    </ContextProvider>
     </BrowserRouter>
   )
 }

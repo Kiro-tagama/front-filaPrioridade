@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import useHook from "../hook/useHook";
-
 import { PlusSquare } from "@phosphor-icons/react";
+import { useContext } from "react";
+import { Context } from "../context/ContextProvider";
 
 export default function Adicionar() {
-  const {addData,setAddData,postData,Animation}= useHook()
+  const {addData,setAddData,postData,Animation}= useContext(Context)
 
   const list = [1,2,3,4];
 

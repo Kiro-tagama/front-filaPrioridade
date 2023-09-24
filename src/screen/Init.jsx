@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
-import useHook from "../hook/useHook";
 
 import { FirstAidKit, List, PlusSquare } from "@phosphor-icons/react";
+import { useContext } from "react";
+import { Context } from "../context/ContextProvider";
 
 export default function Init (){
-  const {Animation} = useHook()
+  const {Animation} = useContext(Context)
 
   return(
     <div>

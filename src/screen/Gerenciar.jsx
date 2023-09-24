@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import useHook from "../hook/useHook";
 import { Gear, Trash } from "@phosphor-icons/react";
+import { useContext } from "react";
+import { Context } from "../context/ContextProvider";
 
 export default function Gerenciar(options) {
-  const {data,delData,Animation,notiAudio} = useHook()
+  const {data,delData,Animation} = useContext(Context)
 
   function sendData(params) {
     const res= data[params].filas[4]
@@ -41,8 +42,8 @@ export default function Gerenciar(options) {
                     color:prioridade[data.priority],
                 }}>{data.priority}</div></td>
                 <td>{data.name}</td>
-                <td>0{++index}</td>
-                <td><button className="outline contrast" onClick={()=>delData(data.id)}><Trash size={32/1.5} /></button></td>
+                <td>0{++index} {index == 1 ? (<span><br />Atual</span>): ""}</td>
+                <td><button className={index==1 ?"contrast":"outline contrast"} onClick={()=>delData(data.id,--index)}><Trash size={32/1.5} /></button></td>
               </tr>
             )
           })}
