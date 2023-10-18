@@ -7,7 +7,7 @@ import ding from "./ding.mp3"
 export const Context= createContext({})
 
 export function ContextProvider({children}){
-  const url = "http://127.0.0.1:8080/"
+  const url = "http://localhost:8080/"
   const [data, setData] =useState();
 
   useEffect(() =>{
