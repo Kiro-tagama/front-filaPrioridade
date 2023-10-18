@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
-import { Gear, Trash } from "@phosphor-icons/react";
-import { useContext } from "react";
+import { Link, useNavigate, useNavigation} from "react-router-dom";
+import { Gear, Trash, PencilSimple } from "@phosphor-icons/react";
+import { useContext} from "react";
 import { Context } from "../context/ContextProvider";
 
 export default function Gerenciar(options) {
   const {data,delData,Animation} = useContext(Context)
+  const nav=useNavigate()
 
   function sendData(params) {
     const res= data[params].filas[4]
@@ -30,6 +31,7 @@ export default function Gerenciar(options) {
               <th>nome</th>
               <th>posição</th>
               <th>Apagar</th>
+              <th>Editar</th>
             </tr>
           </thead>
           <tbody>
@@ -44,6 +46,7 @@ export default function Gerenciar(options) {
                 <td>{data.name}</td>
                 <td>0{++index} {index == 1 ? (<span><br />Atual</span>): ""}</td>
                 <td><button className={index==1 ?"contrast":"outline contrast"} onClick={()=>delData(data.id,--index)}><Trash size={32/1.5} /></button></td>
+                <td><button className={"outline contrast"} onClick={()=>nav("/edit",{state:data})}><PencilSimple size={32/1.5} /></button></td>
               </tr>
             )
           })}

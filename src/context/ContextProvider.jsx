@@ -28,7 +28,7 @@ export function ContextProvider({children}){
     },60000) //1min
   },[timer])
   // não to consiguindo resetar ao excluir usuario
-  console.log(timer);
+  //console.log(timer);
 
   function delData(id,index) {
     Axios.delete(url+"delUser/"+id)
@@ -52,6 +52,18 @@ export function ContextProvider({children}){
     if (addData.name.length <= 3) return
 
     Axios.post(url+"addUser",addData)
+    .then(e=>{
+      console.log("postData: " + e)
+      setAddData({name:"",priority:1})
+      nav("/")
+    })
+    .catch(err=>console.log(err))
+  }
+
+  function putNewDate(props){
+    if (props.name.length <= 3) return
+
+    Axios.put(url+"setUser",props)
     .then(e=>{
       console.log("postData: " + e)
       setAddData({name:"",priority:1})
@@ -94,6 +106,8 @@ export function ContextProvider({children}){
     )
   }
 
+  
+
   return(
     <Context.Provider
       value={{
@@ -102,7 +116,8 @@ export function ContextProvider({children}){
         addData,setAddData,
         postData,
         Animation,
-        timer,timer2
+        timer,timer2,
+        putNewDate
       }}
     >
       {children}

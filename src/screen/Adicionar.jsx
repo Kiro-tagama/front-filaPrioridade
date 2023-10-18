@@ -23,15 +23,15 @@ export default function Adicionar() {
         type="text" 
         placeholder="Jhon Doe" 
         value={addData.name}
-        aria-invalid={addData.name.length <=3 ? "true" : "false"}
+        aria-invalid={addData.name.length <= 3 ? "true" : "false"}
         onChange={
           txt=>setAddData({...addData,name:txt.target.value})
         } 
-        />
+      />
       
       <label>Prioridade</label>
       {list.map(data=>(
-        <label for={data}>
+        <label>
           <input 
             type="radio" 
             name="prioridade" 
